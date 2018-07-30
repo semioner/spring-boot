@@ -13,9 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class GlobalExceptionHandler {
 
 
-    /** 
-     * @Author: heshuanxu 
-     * @Date: 14:42 2018/7/27 
+    /**
+     * @Author: heshuanxu
+     * @Date: 14:42 2018/7/27
      * @Desc: 上传异常处理
      */
     @ExceptionHandler(MultipartException.class)

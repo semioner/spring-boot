@@ -29,7 +29,7 @@ public class DataSourceConfig {
     private String password;
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         log.info("============== dataSource init ===========");
         log.info(url);
         BasicDataSource dataSource = new BasicDataSource();

@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insert(UserPo userPo) {
-        log.info("service insert =============");
+        log.info("service insert log =====================");
         return userPoMapper.insert(userPo);
     }
 }

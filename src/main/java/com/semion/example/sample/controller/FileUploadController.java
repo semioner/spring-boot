@@ -18,12 +18,12 @@ import java.nio.file.Paths;
 public class FileUploadController {
 
 
-    public String singleUpload(@RequestParam("file") MultipartFile file){
+    public String singleUpload(@RequestParam("file") MultipartFile file) {
         try {
             byte[] bytes = file.getBytes();
             String filename = file.getOriginalFilename();
-            Path path = Paths.get("./"+filename);
-            Files.write(path,bytes);
+            Path path = Paths.get("./" + filename);
+            Files.write(path, bytes);
 
         } catch (IOException e) {
             log.error("文件上传失败");

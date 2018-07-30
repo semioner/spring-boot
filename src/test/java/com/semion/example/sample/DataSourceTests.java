@@ -23,8 +23,6 @@ public class DataSourceTests {
     ApplicationContext applicationContext;
 
 
-
-
     @Test
     public void testDataSource() throws Exception {
         // 获取配置的数据源

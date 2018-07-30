@@ -16,14 +16,14 @@ public class SchedulerTask {
     @Value("${openSwitch}")
     private String openSwitch;
 
-    /** 
-     * @Author: heshuanxu 
-     * @Date: 13:48 2018/7/27 
+    /**
+     * @Author: heshuanxu
+     * @Date: 13:48 2018/7/27
      * @Desc: 每分钟一次
      */
     @Scheduled(cron = "0 0/5 * * * ? ")
-    private void doTask(){
-        if(openSwitch.equals("open")){
+    private void doTask() {
+        if (openSwitch.equals("open")) {
             log.info("task is running.....。。。。");
         }
     }
