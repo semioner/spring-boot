@@ -1,14 +1,11 @@
 package com.semion.example.sample.controller;
 
-import com.semion.example.sample.dao.UserPoMapper;
 import com.semion.example.sample.domain.UserPo;
 import com.semion.example.sample.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * Created by heshuanxu on 2018/7/27.
