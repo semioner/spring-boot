@@ -1,4 +1,4 @@
-package com.semion.example.sample.domain.entity;
+package com.semion.example.sample.domain;
 
 import lombok.Getter;
 import lombok.Setter;
