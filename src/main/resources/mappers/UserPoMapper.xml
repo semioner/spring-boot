@@ -99,8 +99,8 @@
   </delete>
 
    <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.semion.example.sample.domain.UserPo">
-    insert into t_user (use_type, user_name, phone)
-    values (#{useType,jdbcType=TINYINT}, #{userName,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
+    insert into t_user (use_type, user_name, phone,created_time)
+    values (#{useType,jdbcType=TINYINT}, #{userName,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{createdTime,jdbcType=TIMESTAMP})
    </insert>
     <insert id="insertSelective" parameterType="com.semion.example.sample.domain.UserPo">
         insert into t_user

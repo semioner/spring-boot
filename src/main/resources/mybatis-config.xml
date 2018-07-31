@@ -14,7 +14,11 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!-- 是否使用插入数据后自增主键的值，需要配合keyProperty使用 -->
         <setting name="useGeneratedKeys" value="true"/>
-        <!--此属性功能待验证-->
         <setting name="callSettersOnNulls" value="true"/>
     </settings>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--<property name="dialect" value="mysql"/>-->
+        </plugin>
+    </plugins>
 </configuration>

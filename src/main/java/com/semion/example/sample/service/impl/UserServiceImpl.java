@@ -1,7 +1,10 @@
 package com.semion.example.sample.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.semion.example.sample.dao.UserPoMapper;
 import com.semion.example.sample.domain.UserPo;
+import com.semion.example.sample.domain.UserPoExample;
 import com.semion.example.sample.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Created by heshuanxu on 2018/7/30.
@@ -28,8 +33,19 @@ public class UserServiceImpl implements UserService {
     public String insert(UserPo userPo) {
         log.info("service insert log =====================");
         userPoMapper.insert(userPo);
-        int i = 10 / 0;// 发生异常事物回滚
-        log.info(i+"");
+        //int i = 10 / 0;// 发生异常事物回滚
+        //log.info(i+"");
         return "success";
+    }
+
+    @Override
+    public List<UserPo> selectAll(UserPo user) {
+        UserPoExample example = new UserPoExample();
+        Page<UserPo> page = PageHelper.startPage(1, 10);
+        List<UserPo> userPos = userPoMapper.selectByExample(example);
+        long total = page.getTotal();
+        log.info("total:{}",total);
+        log.info(userPos.size()+"");
+        return userPos;
     }
 }
