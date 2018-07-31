@@ -22,15 +22,14 @@ public class SampleController {
 
     @RequestMapping(PATH_ROOT)
     public String index() {
-        log.info("request index method=========");
+        log.info("request index method exec=============");
         return "hello world index";
     }
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public String addUser(UserPo user) {
-        int insert = userService.insert(user);
+         userService.insert(user);
         return "success";
     }
-
 
 }

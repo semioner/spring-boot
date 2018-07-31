@@ -97,16 +97,11 @@
     delete from t_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-    <delete id="deleteByExample" parameterType="com.semion.example.sample.domain.UserPoExample">
-        delete from t_user
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </delete>
-    <insert id="insert" parameterType="com.semion.example.sample.domain.UserPo">
+
+   <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.semion.example.sample.domain.UserPo">
     insert into t_user (use_type, user_name, phone)
     values (#{useType,jdbcType=TINYINT}, #{userName,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR})
-  </insert>
+   </insert>
     <insert id="insertSelective" parameterType="com.semion.example.sample.domain.UserPo">
         insert into t_user
         <trim prefix="(" suffix=")" suffixOverrides=",">

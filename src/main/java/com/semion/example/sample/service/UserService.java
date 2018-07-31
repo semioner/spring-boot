@@ -7,5 +7,5 @@ import com.semion.example.sample.domain.UserPo;
  */
 public interface UserService {
 
-    int insert(UserPo userPo);
+    String insert(UserPo userPo);
 }
