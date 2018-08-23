@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     //  spring会对unchecked异常进行事务回滚；如果是checked异常则不回滚 如果我想check异常也想回滚怎么办，注解上面写明异常类型即可。
     // @Transactional(rollbackFor=Exception.class)
 
-    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT)
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
     @Override
     public String insert(UserPo userPo) {
         log.info("service insert log =====================");
@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService {
         Page<UserPo> page = PageHelper.startPage(1, 10);
         List<UserPo> userPos = userPoMapper.selectByExample(example);
         long total = page.getTotal();
-        log.info("total:{}",total);
-        log.info(userPos.size()+"");
+        log.info("total:{}", total);
+        log.info(userPos.size() + "");
         return userPos;
     }
 }

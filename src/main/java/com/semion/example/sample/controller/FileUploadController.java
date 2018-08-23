@@ -26,7 +26,7 @@ public class FileUploadController {
             Files.write(path, bytes);
 
         } catch (IOException e) {
-            log.error("文件上传失败:{}",e);
+            log.error("文件上传失败:{}", e);
         }
         return "success";
     }

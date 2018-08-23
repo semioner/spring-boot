@@ -47,6 +47,7 @@ public class SampleController {
 
     /**
      * 异常测试
+     *
      * @param user
      * @return
      * @throws Exception

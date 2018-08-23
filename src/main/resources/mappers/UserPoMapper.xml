@@ -98,7 +98,8 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
 
-   <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.semion.example.sample.domain.UserPo">
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true"
+            parameterType="com.semion.example.sample.domain.UserPo">
     insert into t_user (use_type, user_name, phone,created_time)
     values (#{useType,jdbcType=TINYINT}, #{userName,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{createdTime,jdbcType=TIMESTAMP})
    </insert>
