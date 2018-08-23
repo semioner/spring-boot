@@ -34,15 +34,28 @@ public class SampleController {
         Date date = new Date();
         log.info(date.toString());
         user.setCreatedTime(date);
-         userService.insert(user);
+        userService.insert(user);
         return "success";
     }
 
 
-    @RequestMapping(value = "/list", produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/list")
     public List<UserPo> selectAll(UserPo user) {
-        List<UserPo> list =  userService.selectAll(user);
+        List<UserPo> list = userService.selectAll(user);
         return list;
     }
+
+    /**
+     * 异常测试
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/demo")
+    public String demo(UserPo user) throws Exception {
+//        log.info("dkfjdkfjdkfjk");
+        throw new Exception("访问异常");
+    }
+
 
 }

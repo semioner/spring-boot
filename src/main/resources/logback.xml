@@ -2,7 +2,7 @@
 <configuration>
 
     <property name="log.path" value="log" />
-    <property name="log.pattern" value="${log.pattern}" />
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} [%L] - %msg%n" />
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder charset="UTF-8">
