@@ -16,6 +16,6 @@ public class OrderRunner1 implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        log.info(this.getClass().getSimpleName() + "start to initialize");
+        log.info("================="+ this.getClass().getSimpleName() + " start to initialize ============");
     }
 }

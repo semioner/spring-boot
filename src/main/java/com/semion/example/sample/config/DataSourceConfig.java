@@ -1,4 +1,4 @@
-package com.semion.example.sample.dao;
+package com.semion.example.sample.config;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

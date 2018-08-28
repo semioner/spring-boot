@@ -1,5 +1,6 @@
 package com.semion.example.sample.controller;
 
+import com.semion.example.sample.annotation.Log;
 import com.semion.example.sample.domain.UserPo;
 import com.semion.example.sample.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +24,14 @@ public class SampleController {
     @Autowired
     private UserService userService;
 
+    @Log("访问首页面")
     @RequestMapping(PATH_ROOT)
     public String index() {
         log.info("request index method exec=============");
         return "hello world index";
     }
 
+    @Log("新增用户")
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public String addUser(UserPo user) {
         Date date = new Date();
@@ -38,7 +41,7 @@ public class SampleController {
         return "success";
     }
 
-
+    @Log("查询用户列表")
     @RequestMapping(value = "/list")
     public List<UserPo> selectAll(UserPo user) {
         List<UserPo> list = userService.selectAll(user);
