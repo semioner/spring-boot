@@ -1,9 +1,12 @@
 package com.semion.example.sample.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.semion.example.sample.annotation.Log;
 import com.semion.example.sample.domain.UserPo;
 import com.semion.example.sample.service.UserService;
+import com.semion.example.sample.util.Constant;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +23,9 @@ public class SampleController {
 
     public static final String PATH_ROOT = "/";
 
+    @Autowired
+    AmqpTemplate rabbitmqTemplate;
+
 
     @Autowired
     private UserService userService;
@@ -28,6 +34,7 @@ public class SampleController {
     @RequestMapping(PATH_ROOT)
     public String index() {
         log.info("request index method exec=============");
+        rabbitmqTemplate.convertAndSend("index pages");
         return "hello world index";
     }
 
@@ -37,7 +44,12 @@ public class SampleController {
         Date date = new Date();
         log.info(date.toString());
         user.setCreatedTime(date);
-        userService.insert(user);
+        String res = userService.insert(user);
+        if(res!=null && res.equals("success")){
+            log.info("发送异步消息：{}",JSON.toJSONString(user));
+            //发送MQ
+            rabbitmqTemplate.convertAndSend(Constant.queueName,JSON.toJSONString(user));
+        }
         return "success";
     }
 

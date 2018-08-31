@@ -92,7 +92,7 @@ public class LogAspect {
             HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
             log.setIp(IPUtil.getIpAddr(request));
             log.setTime(time);
-            log.setLocation(IPUtil.getRealAddressByIP(log.getIp(),mapper));
+            //log.setLocation(IPUtil.getRealAddressByIP(log.getIp(),mapper));
             logService.saveLog(log);
         } catch (JsonProcessingException e) {
             log.error("记录日志异常：{}",e);
