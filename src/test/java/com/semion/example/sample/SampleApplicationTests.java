@@ -22,7 +22,7 @@ public class SampleApplicationTests {
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new SampleController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new SampleApplication()).build();
     }
 
     /**
@@ -32,7 +32,11 @@ public class SampleApplicationTests {
      */
     @Test
     public void contextLoads() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
+        mvc.perform(MockMvcRequestBuilders.get("/list") // 请求URL
+                .accept(MediaType.APPLICATION_JSON))// 数据格式
+                .andExpect(MockMvcResultMatchers.status().isOk())// 返回200状态
+                .andDo(MockMvcResultHandlers.print())// 打印结果
+                .andReturn();
     }
 
 }

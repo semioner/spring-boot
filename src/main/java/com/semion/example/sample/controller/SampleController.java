@@ -33,9 +33,9 @@ public class SampleController {
     @Log("访问首页面")
     @RequestMapping(PATH_ROOT)
     public String index() {
-        log.info("request index method exec=============");
-        rabbitmqTemplate.convertAndSend("index pages");
-        return "hello world index";
+        log.info("=========visit index method start======");
+        rabbitmqTemplate.convertAndSend("index page");
+        return "hello world index page";
     }
 
     @Log("新增用户")
@@ -56,6 +56,7 @@ public class SampleController {
     @Log("查询用户列表")
     @RequestMapping(value = "/list")
     public List<UserPo> selectAll(UserPo user) {
+        log.info("查询用户列表start");
         List<UserPo> list = userService.selectAll(user);
         return list;
     }

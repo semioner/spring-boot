@@ -24,6 +24,6 @@ public class SampleApplication {
     public static void main(String[] args) {
         log.info("[ spring boot start ] ");
         SpringApplication.run(SampleApplication.class, args);
-        log.info("spring boot has started。。。。。。 ");
+        log.info("[ spring boot has started ]");
     }
 }
