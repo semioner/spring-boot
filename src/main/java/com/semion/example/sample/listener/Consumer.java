@@ -14,9 +14,23 @@ public class Consumer {
      * @RabbitHandler 指定消息处理的方法
      */
     //@RabbitHandler
-    @RabbitListener(queues = Constant.queueName)
-    public void process(String message) {
-        log.info("接受到异步MQ消息：{}", message);
+    @RabbitListener(queues = "fanout.A")
+    public void processA(String message) {
+        log.info("A接受到MQ消息：{}", message);
+    }
+
+    @RabbitListener(queues = "fanout.B")
+    public void processB(String message) {
+        log.info("B接受到MQ消息：{}", message);
+    }
+
+    @RabbitListener(queues = "fanout.C")
+    public void processC(String message) {
+        log.info("C接受到MQ消息：{}", message);
+    }
+    @RabbitListener(queues = "fanout.C")
+    public void processC_1(String message) {
+        log.info("C-1接受到MQ消息：{}", message);
     }
 
 }

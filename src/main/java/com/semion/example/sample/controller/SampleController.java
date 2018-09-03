@@ -48,7 +48,7 @@ public class SampleController {
         if(res!=null && res.equals("success")){
             log.info("发送异步消息：{}",JSON.toJSONString(user));
             //发送MQ
-            rabbitmqTemplate.convertAndSend(Constant.queueName,JSON.toJSONString(user));
+            rabbitmqTemplate.convertAndSend(Constant.exchangeName,"",JSON.toJSONString(user));
         }
         return "success";
     }
